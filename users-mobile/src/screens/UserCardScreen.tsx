@@ -1,16 +1,23 @@
 import React from 'react'
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Animated, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { RootStackAppNavigation } from '../navigation/StackAppNavigation';
 import { StackScreenProps } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Background from '../components/Background';
+import { useAnimation } from '../hooks/useAnimeted';
+import { useEffect } from 'react';
 
 interface Props extends StackScreenProps<RootStackAppNavigation, 'UserCardScreen'> { }
 
 const UserCardScreen = ({ route, navigation }: Props) => {
 
-    const { first_name, last_name, email, avatar } = route.params
+    const { first_name, last_name, email, avatar } = route.params;
+    const {opacity, fadeIn } = useAnimation();
 
+    useEffect(() => {
+      fadeIn(800);
+    }, [])
+    
 
     return (
         <SafeAreaView style={{ flex: 1 }} >
@@ -19,7 +26,7 @@ const UserCardScreen = ({ route, navigation }: Props) => {
             />
 
             <View style={styles.container} >
-                <View style={{ ...styles.buttonBack, ...styles.shadowStyle }} >
+                <View style={{ ...styles.buttonBack,  }} >
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         activeOpacity={0.7}
@@ -33,15 +40,15 @@ const UserCardScreen = ({ route, navigation }: Props) => {
                 </View>
 
                 <View style={styles.shadowStyle} >
-                    <Image
+                    <Animated.Image
                         source={{ uri: avatar }}
-                        style={styles.imageStyle}
+                        style={{...styles.imageStyle, opacity}}
                     />
                 </View>
 
 
-                <Text style={styles.textName} >{first_name + ' ' + last_name}</Text>
-                <Text style={styles.textEmail} >{email}</Text>
+                <Animated.Text style={{...styles.textName, opacity}}  >{first_name + ' ' + last_name}</Animated.Text>
+                <Animated.Text style={{...styles.textEmail, opacity}} >{email}</Animated.Text>
             </View>
 
 

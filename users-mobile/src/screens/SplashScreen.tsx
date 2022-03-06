@@ -9,26 +9,26 @@ interface Props extends StackScreenProps<RootStackAppNavigation, 'SplashScreen'>
 
 const SplashScreen = ({ navigation }: Props) => {
 
-  const nav = () => navigation.navigate('UsersScreen');
+  const nav = () => navigation.replace('UsersScreen');
   const { opacity, fadeIn } = useAnimation();
   useTimeout(3000, nav);
 
   return (
     <Animated.View style={[
       styles.container, {
-      opacity
-    }]}
-    onLayout={ () => fadeIn(1500) } 
+        opacity
+      }]}
+      onLayout={() => fadeIn(1500)}
     >
 
       <Text style={styles.titleStyle} >Usuarios</Text>
 
       <View style={styles.badgeRibbon}>
-      <View style={styles.badgeRibbonCircle} />
-      <View style={styles.badgeRibbonNeg140} />
-      <View style={styles.badgeRibbon140} />
+        <View style={styles.badgeRibbonCircle} />
+        <View style={styles.badgeRibbonNeg140} />
+        <View style={styles.badgeRibbon140} />
 
-    </View>
+      </View>
     </Animated.View>
 
   )

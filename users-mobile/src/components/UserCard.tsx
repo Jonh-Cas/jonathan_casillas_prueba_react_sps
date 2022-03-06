@@ -1,6 +1,8 @@
 import React from 'react'
-import { Text, TouchableOpacity, Image, StyleSheet, View, ActivityIndicator } from 'react-native'
+import { Text, TouchableOpacity, Image, StyleSheet, View, ActivityIndicator, Animated } from 'react-native';
+import { useAnimation } from '../hooks/useAnimeted';
 import { UserInfo } from '../interfaces/userListInterfaces';
+import { useEffect } from 'react';
 
 
 interface Props {
@@ -10,11 +12,22 @@ interface Props {
 
 const UserCard = ({ user, onPress }: Props) => {
 
+    const { position, startMoving } = useAnimation();
 
+    useEffect(() => {
+        startMoving(800, 800) 
+    }, [])
+    
 
     return (
-        <>
-            
+        <Animated.View
+            style={{
+                transform: [{
+                    translateY: position
+                }]
+            }}
+        >
+
             <TouchableOpacity
                 style={styles.buttonStyle}
                 onPress={onPress}
@@ -39,7 +52,7 @@ const UserCard = ({ user, onPress }: Props) => {
                 </View>
                 <Text style={styles.nameStyle} >{user.first_name + ' ' + user.last_name}</Text>
             </TouchableOpacity>
-        </>
+        </Animated.View>
     )
 }
 
