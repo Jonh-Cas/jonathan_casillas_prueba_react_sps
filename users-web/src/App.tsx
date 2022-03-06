@@ -1,12 +1,11 @@
 
-import Name from './screens/Name'
+import MainScreen from './screens/MainScreen'
 import '../src/App.css'
+
 
 const App = () => {
   return (
-  
-      <Name />
-    
+      <MainScreen />
   )
 }
 
