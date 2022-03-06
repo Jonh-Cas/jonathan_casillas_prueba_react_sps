@@ -7,6 +7,13 @@ import { useAnimation } from '../hooks/useAnimeted';
 
 interface Props extends StackScreenProps<RootStackAppNavigation, 'SplashScreen'> { }
 
+/**
+ * 
+ * @param Props  este cprops contiene la navigacion de pantalla 
+ * @returns este componete visualiza la el SplashScreen de la aplicacion
+ */
+
+
 const SplashScreen = ({ navigation }: Props) => {
 
   const nav = () => navigation.replace('UsersScreen');
@@ -23,12 +30,14 @@ const SplashScreen = ({ navigation }: Props) => {
 
       <Text style={styles.titleStyle} >Usuarios</Text>
 
-      <View style={styles.badgeRibbon}>
-        <View style={styles.badgeRibbonCircle} />
-        <View style={styles.badgeRibbonNeg140} />
-        <View style={styles.badgeRibbon140} />
-
+      <View style={styles.facebook}>
+      <View style={styles.facebookMain}>
+        <View style={styles.facebookCurve} />
+        <View style={styles.facebookBefore} />
+        <View style={styles.facebookAfter} />
+        <View style={styles.facebookRedCover} />
       </View>
+    </View>
     </Animated.View>
 
   )
@@ -50,41 +59,58 @@ const styles = StyleSheet.create({
     color: '#000'
   },
 
-  badgeRibbon: {},
-
-  badgeRibbonCircle: {
+  facebook: {
     width: 100,
-    height: 100,
+    height: 110,
+  },
+  facebookMain: {
     backgroundColor: "#4897d8",
-    borderRadius: 50,
+    width: 100,
+    height: 110,
+    borderRadius: 5,
+    borderColor: "#4897d8",
+    borderTopWidth: 15,
+    borderLeftWidth: 15,
+    borderRightWidth: 15,
+    borderBottomWidth: 0,
+    overflow: "hidden",
   },
-
-  badgeRibbon140: {
-    backgroundColor: "transparent",
-    borderBottomWidth: 70,
-    borderBottomColor: "#4897d8",
-    borderLeftWidth: 40,
-    borderLeftColor: "transparent",
-    borderRightWidth: 40,
-    borderRightColor: "transparent",
+  facebookRedCover: {
+    width: 10,
+    height: 20,
+    backgroundColor: "#4897d8",
     position: "absolute",
-    top: 70,
-    right: -10,
-    transform: [{ rotate: "140deg" }],
+    right: 0,
+    top: 5,
   },
-
-  badgeRibbonNeg140: {
-    backgroundColor: "transparent",
-    borderBottomWidth: 70,
-    borderBottomColor: "#4897d8",
-    borderLeftWidth: 40,
-    borderLeftColor: "transparent",
-    borderRightWidth: 40,
+  facebookCurve: {
+    width: 50,
+    borderWidth: 20,
+    borderTopWidth: 20,
+    borderTopColor: "white",
+    borderBottomColor: "transparent",
+    borderLeftColor: "white",
     borderRightColor: "transparent",
+    borderRadius: 20,
     position: "absolute",
-    top: 70,
-    left: -10,
-    transform: [{ rotate: "-140deg" }],
+    right: -8,
+    top: 5,
+  },
+  facebookBefore: {
+    position: "absolute",
+    backgroundColor: "white",
+    width: 20,
+    height: 70,
+    bottom: 0,
+    right: 22,
+  },
+  facebookAfter: {
+    position: "absolute",
+    width: 55,
+    top: 50,
+    height: 20,
+    backgroundColor: "white",
+    right: 5,
   },
 
 })

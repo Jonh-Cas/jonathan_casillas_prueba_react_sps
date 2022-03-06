@@ -1,3 +1,10 @@
+/**
+ * 
+ * @returns Este componente maneja las pantallas de la aplicación, entre los componetes
+ * descritos se maneja hacia que pantalla mostrar
+ */
+
+
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import SplashScreen from '../screens/SplashScreen';
@@ -13,13 +20,15 @@ export type RootStackAppNavigation = {
 
 const Stack = createStackNavigator<RootStackAppNavigation>();
 
+
+
 const StackAppNavigation = () => {
   return (
     <Stack.Navigator
         screenOptions={{
             headerShown: false,
             cardStyle: {
-              backgroundColor: '#fff',
+              backgroundColor: 'transparent',
             }
         }}
     >
