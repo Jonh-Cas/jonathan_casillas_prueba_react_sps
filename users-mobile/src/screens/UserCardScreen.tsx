@@ -1,5 +1,13 @@
+/**
+ * Es componete requiere que se le mande la informacion de un usuario
+ * @param Prosp este Objetos tiene los valores de la navegacion y la informacion de un usuario 
+ * nombre, apellido, email y avatar o imagen del usuario 
+ * @returns Este pantalla descpliega la informacion del usuario al transcurrir 800 milisegundos
+ *  y un boton para regresar a la panatalla anterior
+ */
+
 import React from 'react'
-import { Animated, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Animated,  SafeAreaView, StyleSheet,  TouchableOpacity, View } from 'react-native'
 import { RootStackAppNavigation } from '../navigation/StackAppNavigation';
 import { StackScreenProps } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -7,7 +15,7 @@ import Background from '../components/Background';
 import { useAnimation } from '../hooks/useAnimeted';
 import { useEffect } from 'react';
 
-interface Props extends StackScreenProps<RootStackAppNavigation, 'UserCardScreen'> { }
+interface Props extends StackScreenProps<RootStackAppNavigation, 'UserCardScreen'> {}
 
 const UserCardScreen = ({ route, navigation }: Props) => {
 
@@ -26,7 +34,7 @@ const UserCardScreen = ({ route, navigation }: Props) => {
             />
 
             <View style={styles.container} >
-                <View style={{ ...styles.buttonBack,  }} >
+                <View style={{ ...styles.buttonBack, ...styles.shadowStyle  }} >
                     <TouchableOpacity
                         onPress={() => navigation.goBack()}
                         activeOpacity={0.7}
@@ -38,15 +46,11 @@ const UserCardScreen = ({ route, navigation }: Props) => {
                         />
                     </TouchableOpacity>
                 </View>
-
-                <View style={styles.shadowStyle} >
                     <Animated.Image
                         source={{ uri: avatar }}
                         style={{...styles.imageStyle, opacity}}
                     />
-                </View>
-
-
+               
                 <Animated.Text style={{...styles.textName, opacity}}  >{first_name + ' ' + last_name}</Animated.Text>
                 <Animated.Text style={{...styles.textEmail, opacity}} >{email}</Animated.Text>
             </View>
@@ -75,7 +79,6 @@ const styles = StyleSheet.create({
     },
 
     shadowStyle: {
-
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -83,7 +86,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
-
         elevation: 6,
     },
 

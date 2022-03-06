@@ -1,3 +1,11 @@
+/**
+ * Requiere ula infomacion de un usuario y una funcion para navegar a la otra pantalla 
+ * @param Props Se requiere mandarle un usuario para visualizar la informacion del mismo.
+ * se le manda una funcion para navigar a la otra pantalla  
+ * @returns este componente visualiza el boton de un usuario con su nombre, apellido y imagen todo esto animado 
+ */
+
+
 import React from 'react'
 import { Text, TouchableOpacity, Image, StyleSheet, View, ActivityIndicator, Animated } from 'react-native';
 import { useAnimation } from '../hooks/useAnimeted';
@@ -9,6 +17,7 @@ interface Props {
     user: UserInfo;
     onPress: () => void;
 }
+
 
 const UserCard = ({ user, onPress }: Props) => {
 

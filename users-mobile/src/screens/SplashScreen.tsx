@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param Props  este cprops contiene la navigacion de pantalla 
+ * @returns este componete visualiza la el SplashScreen de la aplicacion
+ */
+
 import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack';
 import { View, Text, StyleSheet, Animated } from 'react-native'
@@ -7,11 +13,6 @@ import { useAnimation } from '../hooks/useAnimeted';
 
 interface Props extends StackScreenProps<RootStackAppNavigation, 'SplashScreen'> { }
 
-/**
- * 
- * @param Props  este cprops contiene la navigacion de pantalla 
- * @returns este componete visualiza la el SplashScreen de la aplicacion
- */
 
 
 const SplashScreen = ({ navigation }: Props) => {

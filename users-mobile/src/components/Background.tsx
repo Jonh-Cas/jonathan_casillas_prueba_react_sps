@@ -1,10 +1,17 @@
+/**
+ * Este componente requiere que se le mande el color
+ * @param Props Este Objeto contiene la variable color de tipo string
+ * @returns Visualiza el fondo de panatalla 
+ */
+
 import React from 'react'
 import { StyleProp, View, ViewProps } from 'react-native'
 
 interface Props {
     color: string;
-    style?: StyleProp<ViewProps>
+    // style?: StyleProp<ViewProps>
 }
+
 
 const Background = ({ color }: Props) => {
     return (
@@ -27,5 +34,3 @@ const Background = ({ color }: Props) => {
 }
 
 export default Background;
-
-// '#5856d6'

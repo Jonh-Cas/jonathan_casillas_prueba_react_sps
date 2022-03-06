@@ -1,3 +1,10 @@
+/**
+ * Este componente no requiere que se le mande nada  
+ * @param Props Este Objeto contiene la funcion de navegacion para ir a otras pantallas  
+ * @returns este componente mustra una lista de botones de los usuarios utilizando FlatLis
+ * para navegar a otra pnatalla 
+ */
+
 import React from 'react'
 import { FlatList, StyleSheet, ActivityIndicator } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack';
@@ -9,7 +16,8 @@ import UserCard from '../components/UserCard';
 import Background from '../components/Background';
 import Separador from '../components/Separador';
 
-interface Props extends StackScreenProps<RootStackAppNavigation, 'UsersScreen'> { }
+interface Props extends StackScreenProps<RootStackAppNavigation, 'UsersScreen'> {}
+
 
 const UsersScreen = ({ navigation }: Props) => {
 

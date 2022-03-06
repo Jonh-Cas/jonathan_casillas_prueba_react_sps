@@ -1,5 +1,11 @@
+/**
+ * Este CustomHook anima imagens y texto en la aplicacion de su posicion y opacidada
+ * @returns un Objeto con variables y funciones que activan la opacidad y cambio de posicion
+ */
+
 import { useRef } from 'react';
 import { Animated } from 'react-native';
+
 
 export const useAnimation = () => {
     const opacity = useRef(new Animated.Value(0)).current;
