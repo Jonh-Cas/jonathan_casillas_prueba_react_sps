@@ -1,0 +1,70 @@
+
+.container {
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    
+}
+
+.userList {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   gap: 3px; 
+   
+}
+
+.imagen{
+ display: flex;
+ height: 130px;
+
+}
+
+.imageStyle {
+    border-radius: 100%;
+    align-self: center;
+    width: 10%;
+    height: 120px;
+    width: 120px;
+}
+
+.textName{
+   flex: 85%;
+   padding: 10px;
+   text-align: start;
+   margin-left: 20px;
+}
+
+.imageCard{
+    display: flex;
+    background-color: #EEEEEE;
+    width: 40%;
+    height: 550px;
+    justify-content: center;
+    border-color: black;
+
+}
+
+
+.userCard {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 60%;
+    margin-top: 8%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageUserCard {
+    display: flex;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+
+}
+
+
+
+
+
