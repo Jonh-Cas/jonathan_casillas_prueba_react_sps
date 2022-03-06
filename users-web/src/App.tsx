@@ -1,6 +1,10 @@
+/**
+ * 
+ * @returns Componente principal que contiene toda la aplicacion 
+ */
 
 import MainScreen from './screens/MainScreen'
-import '../src/App.css'
+
 
 
 const App = () => {

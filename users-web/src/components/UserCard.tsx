@@ -5,6 +5,12 @@ interface Props {
     user: UserInfo;
 }
 
+/**
+ * 
+ * @param Props Este propiedad contiene la infomacion de un usuario 
+ * @returns Este componente muestra la imagen del usuario con su información  
+ */
+
 const UserCard = ({ user }: Props) => {
     return (
         <div className='imageCard' >
