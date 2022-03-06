@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, StyleSheet, ActivityIndicator } from 'react-native'
+import { FlatList, StyleSheet, ActivityIndicator } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackAppNavigation } from '../navigation/StackAppNavigation';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,6 +7,7 @@ import useGetUsersList from '../hooks/useGetUsersList';
 import useTimeout from '../hooks/useTimeout';
 import UserCard from '../components/UserCard';
 import Background from '../components/Background';
+import Separador from '../components/Separador';
 
 interface Props extends StackScreenProps<RootStackAppNavigation, 'UsersScreen'> { }
 
@@ -30,37 +31,24 @@ const UsersScreen = ({ navigation }: Props) => {
     return (
         <>
             <Background
-                color='#80BD9E'
+                color='#4897d8'
             />
+
             <FlatList
                 data={users}
                 keyExtractor={(item,) => item.id.toString()}
-                renderItem={({ item }) => {
-                    console.log(item.avatar);
-
-                    return (
+                renderItem={({ item }) => (
                         <UserCard
                             user={item}
                             onPress={() => navigation.navigate('UserCardScreen', item)}
                         />
-                    )
-                }}
-                style={{
-                    flex: 1,
-                    padding: 10,
-                }}
-                ListHeaderComponent={({ }) => (
-                    <SafeAreaView >
-
-                    </SafeAreaView>
+                    )}
+                style={{flex: 1 }}
+                ListHeaderComponent={() => (
+                    <SafeAreaView />
                 )}
                 ItemSeparatorComponent={() => (
-                    <View style={{ height: 20 }} >
-                        <View
-                            style={{ borderWidth: 1, borderColor: '#777777' }}
-                        />
-                    </View>
-
+                    <Separador />
                 )}
 
             />
@@ -71,10 +59,6 @@ const UsersScreen = ({ navigation }: Props) => {
 export default UsersScreen;
 
 const styles = StyleSheet.create({
-    textTitle: {
-        fontSize: 20,
-        color: '#000',
-    },
 
     activityStyle: {
         flex: 1,

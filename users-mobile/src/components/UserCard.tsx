@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, TouchableOpacity, Image, StyleSheet, View } from 'react-native'
+import { Text, TouchableOpacity, Image, StyleSheet, View, ActivityIndicator } from 'react-native'
 import { UserInfo } from '../interfaces/userListInterfaces';
-import Background from './Background';
+
 
 interface Props {
     user: UserInfo;
@@ -9,20 +9,33 @@ interface Props {
 }
 
 const UserCard = ({ user, onPress }: Props) => {
+
+
+
     return (
         <>
-
+            
             <TouchableOpacity
                 style={styles.buttonStyle}
                 onPress={onPress}
                 activeOpacity={0.7}
             >
                 <View style={styles.shadowStyle} >
+                    {
+                        (user.avatar) ?
+                            <View style={styles.shadowStyle} >
 
-                    <Image
-                        source={{ uri: user.avatar }}
-                        style={styles.imageStyle}
-                    />
+                                <Image
+                                    source={{ uri: user.avatar }}
+                                    style={styles.imageStyle}
+                                />
+                            </View>
+                            :
+                            <ActivityIndicator
+                                size={20}
+                                color='#80BD9E'
+                            />
+                    }
                 </View>
                 <Text style={styles.nameStyle} >{user.first_name + ' ' + user.last_name}</Text>
             </TouchableOpacity>
@@ -58,6 +71,7 @@ const styles = StyleSheet.create({
         width: 100,
         borderRadius: 100,
         alignSelf: 'center',
+        backgroundColor: '#fff'
     },
 
     nameStyle: {

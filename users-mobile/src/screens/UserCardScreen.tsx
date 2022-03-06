@@ -15,7 +15,7 @@ const UserCardScreen = ({ route, navigation }: Props) => {
     return (
         <SafeAreaView style={{ flex: 1 }} >
             <Background
-                color='#80BD9E'
+                color='#4897d8'
             />
 
             <View style={styles.container} >

@@ -13,7 +13,7 @@ const Background = ({ color }: Props) => {
                 position: 'absolute',
                 backgroundColor: color,
                 top: -350,
-                left: 30,
+                left: 50,
                 width: 900,
                 height: 1200,
                 transform: [
